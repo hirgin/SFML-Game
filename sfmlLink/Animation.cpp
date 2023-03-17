@@ -7,11 +7,8 @@ Animation::Animation(Texture* texture, Vector2u imageCount, float switchTime)
 	this->switchTime = switchTime;
 	totalTime = 0.0f;
 	currentImage.x = 0;
-	
 	uvRect.width = texture->getSize().x / float(imageCount.x);
 	uvRect.height = texture->getSize().y / float(imageCount.y);
-	prevAnimation = "";
-
 }
 
 Animation::~Animation()
@@ -26,8 +23,7 @@ void Animation::update(int row, float deltaTime, bool faceRight, float switchTim
 	totalTime += deltaTime;
 	this->switchTime = switchTime;
 	this->imageCount = imageCount;
-	bool newImage;
-	
+
 	if (currentImage.x >= imageCount.x)	// make sure sprite size matches current sprite
 	{
 		currentImage.x = 0;
@@ -36,7 +32,6 @@ void Animation::update(int row, float deltaTime, bool faceRight, float switchTim
 	uvRect.width = texture->getSize().x / float(imageCount.x);
 	uvRect.height = texture->getSize().y / float(imageCount.y);
 
-
 	if (totalTime >= switchTime)	// go to next img
 	{
 		totalTime -= switchTime;
@@ -44,14 +39,13 @@ void Animation::update(int row, float deltaTime, bool faceRight, float switchTim
 
 		if (currentImage.x >= imageCount.x)		// make sure sprite size matches current sprite
 		{
-
-			currentImage.x = 0;
+			currentImage.x = 0;	// set image to first frame of animation
 		}
 	}
-
+	
 	uvRect.top = currentImage.y * uvRect.height;
 
-	if (faceRight)
+	if (faceRight)	// sets whether character is facing left or right
 	{
 		uvRect.left = currentImage.x * uvRect.width;
 		uvRect.width = abs(uvRect.width);

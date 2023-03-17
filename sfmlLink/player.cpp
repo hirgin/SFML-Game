@@ -58,7 +58,6 @@ void player::update(float deltaTime)
 			pCurrentTexture = playerRunTexture;
 			switchUpdate = .095f;
 			movement.x -= speed * deltaTime * 1.8f;
-			
 		}
 		else // walk
 		{
@@ -91,19 +90,16 @@ void player::update(float deltaTime)
 		}
 	}
 
-
-	if (!(movementTrue()))
+	if (!(movementTrue())) // Idle Animation 
 	{
 		this->imageCount = Vector2u(6, 2);
 		pCurrentTexture = playerIdleTexture;
 		switchUpdate = .4f;
 		
 	}
-	
-	
 
-	// START FROM START
 
+	// Section to update player animation, location, and texture
 	body.setTexture(&pCurrentTexture);
 	animation.update(row, deltaTime, faceRight, switchUpdate, this->imageCount, &pCurrentTexture );
 	body.setTextureRect(animation.uvRect);

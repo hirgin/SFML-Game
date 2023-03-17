@@ -4,8 +4,13 @@ Main Game Ideas
 
 Setting 
 
-- Outskirts of city
-- Near everything possible like a quarry, city, suburbs etc. 
+- Main Hideout
+	- Located on outskirts of city near a forest, quarry, and suburbs
+	- 
+
+- Suburbs
+	- Has grocery store similar to Fallout
+	- Houses/stores filled with items for scavenging
 
 
 Features
@@ -26,3 +31,6 @@ Lore/Story
 
 
 Current Schedule
+	- Implement collisions for world and player
+	- Implement player jumping
+	- Implement scene backgrounds

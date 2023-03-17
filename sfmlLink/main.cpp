@@ -2,8 +2,6 @@
 #include "Game.h"
 #include "Player.h"
 
-
-
 int main()
 {
 	RenderWindow gameWindow(VideoMode(1920,1080), "Game Window", Style::Close | Style::Resize);
